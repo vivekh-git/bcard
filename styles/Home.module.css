@@ -1,0 +1,311 @@
+/* ── Page shell ─────────────────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #140226 0%, #0a1540 55%, #140226 100%);
+  padding-bottom: 60px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  padding: 40px 24px 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%);
+}
+
+.title {
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #ff6b9d, #ffd700, #a78bfa, #ff6b9d);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+  margin: 0;
+  font-family: Georgia, serif;
+}
+
+@keyframes shimmer {
+  to { background-position: 250% center; }
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: #c4b5fd;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.4px;
+}
+
+/* ── Two-column layout ──────────────────────────────────────────────────── */
+.main {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 36px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+  align-items: start;
+}
+
+/* ── LEFT: Form ─────────────────────────────────────────────────────────── */
+.formSide {
+  position: sticky;
+  top: 28px;
+}
+
+.formCard {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 34px 30px;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.formTitle {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #1a0533;
+  text-align: center;
+  margin: 0 0 26px;
+}
+
+/* Fields */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #3d3d3d;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.input {
+  padding: 12px 15px;
+  border: 2px solid #e2e2e2;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #fafafa;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+}
+
+.input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3.5px rgba(167, 139, 250, 0.22);
+  background: #fff;
+}
+
+.inputErr {
+  border-color: #f87171;
+}
+
+.inputErr:focus {
+  border-color: #f87171;
+  box-shadow: 0 0 0 3.5px rgba(248, 113, 113, 0.2);
+}
+
+.errMsg {
+  font-size: 0.78rem;
+  color: #dc2626;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Submit button */
+.submitBtn {
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.25px;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(168, 85, 247, 0.45);
+}
+
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ── RIGHT: Cards ──────────────────────────────────────────────────────── */
+.cardsSide {
+  padding-top: 2px;
+}
+
+.cardsSideTitle {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #fde68a;
+  margin: 0 0 24px;
+  text-shadow: 0 2px 10px rgba(253, 230, 138, 0.3);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 70px 24px;
+  border: 2px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Birthday Card ──────────────────────────────────────────────────────── */
+.card {
+  border-radius: 18px;
+  border: 2px solid;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.32), 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: cardIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Ribbon / banner at top of card */
+.cardRibbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 22px;
+  font-size: 1.25rem;
+  letter-spacing: 3px;
+}
+
+.cardRibbonTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+/* Inside of the card */
+.cardBody {
+  padding: 24px 28px 20px;
+  /* Subtle lined-paper feel */
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(0, 0, 0, 0.05) 27px,
+    rgba(0, 0, 0, 0.05) 28px
+  );
+  background-position: 0 36px;
+}
+
+.cardTo {
+  font-size: 0.95rem;
+  color: #2a2a2a;
+  margin: 0 0 14px;
+  font-style: normal;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.cardMeta {
+  font-size: 0.82rem;
+  color: #888;
+  font-style: italic;
+}
+
+.cardRule {
+  border: none;
+  border-top: 1.5px dashed;
+  opacity: 0.35;
+  margin: 14px 0;
+}
+
+.cardMsg {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: #1e1e1e;
+  margin: 10px 0;
+}
+
+.cardClosing {
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.65;
+  margin: 12px 0 0;
+}
+
+.cardFooter {
+  padding: 9px 28px 13px;
+  font-size: 0.73rem;
+  text-align: right;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  opacity: 0.75;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 780px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+
+  .formSide {
+    position: static;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+}
